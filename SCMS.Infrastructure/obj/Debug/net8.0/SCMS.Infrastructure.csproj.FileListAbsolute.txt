@@ -1,0 +1,17 @@
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Infrastructure.deps.json
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Infrastructure.runtimeconfig.json
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Infrastructure.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Infrastructure.pdb
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Domain.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\bin\Debug\net8.0\SCMS.Domain.pdb
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.csproj.AssemblyReference.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.AssemblyInfoInputs.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.AssemblyInfo.cs
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.csproj.CoreCompileInputs.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Inf.A8FAF4E0.Up2Date
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\refint\SCMS.Infrastructure.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.pdb
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.genruntimeconfig.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\ref\SCMS.Infrastructure.dll

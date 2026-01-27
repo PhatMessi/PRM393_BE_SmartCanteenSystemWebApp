@@ -1,0 +1,11 @@
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\bin\Debug\net8.0\SCMS.Domain.deps.json
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\bin\Debug\net8.0\SCMS.Domain.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\bin\Debug\net8.0\SCMS.Domain.pdb
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.AssemblyInfoInputs.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.AssemblyInfo.cs
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.csproj.CoreCompileInputs.cache
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\refint\SCMS.Domain.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\SCMS.Domain.pdb
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Domain\obj\Debug\net8.0\ref\SCMS.Domain.dll
