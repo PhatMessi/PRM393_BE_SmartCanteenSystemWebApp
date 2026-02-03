@@ -142,7 +142,8 @@ namespace SCMS.Infrastructure
                 Description = "Cơm tấm sườn nướng than", 
                 Price = 35000, 
                 CategoryId = 1, // Món chính
-                ImageUrl = "https://example.com/comsuon.jpg", // Mobile sẽ load ảnh này
+                // Sử dụng tên file ảnh trong assets của mobile app
+                ImageUrl = "com_suon.png", 
                 IsAvailable = true ,
                 InventoryQuantity = 100
             },
@@ -153,7 +154,7 @@ namespace SCMS.Infrastructure
                 Description = "Đường đen, ít đá", 
                 Price = 25000, 
                 CategoryId = 2, // Đồ uống
-                ImageUrl = "https://example.com/trasua.jpg",
+                ImageUrl = "tra_sua.png",
                 IsAvailable = true,
                 InventoryQuantity = 50
             }

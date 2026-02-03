@@ -15,3 +15,4 @@ C:\PRN232\SmartCanteenSystemWebApp\SCMS.Application\obj\Debug\net8.0\SCMS.Applic
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Application\obj\Debug\net8.0\refint\SCMS.Application.dll
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Application\obj\Debug\net8.0\SCMS.Application.pdb
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Application\obj\Debug\net8.0\ref\SCMS.Application.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Application\obj\Debug\net8.0\SCMS.Application.sourcelink.json

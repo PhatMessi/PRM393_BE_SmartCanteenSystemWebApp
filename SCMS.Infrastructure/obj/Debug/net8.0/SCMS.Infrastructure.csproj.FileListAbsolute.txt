@@ -15,3 +15,4 @@ C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\refint\S
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.pdb
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.genruntimeconfig.cache
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\ref\SCMS.Infrastructure.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.Infrastructure\obj\Debug\net8.0\SCMS.Infrastructure.sourcelink.json

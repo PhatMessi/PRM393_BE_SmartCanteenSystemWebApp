@@ -142,3 +142,4 @@ C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\obj\Debug\net8.0\refint\SCMS.API.dll
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\obj\Debug\net8.0\SCMS.API.pdb
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\obj\Debug\net8.0\SCMS.API.genruntimeconfig.cache
 C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\obj\Debug\net8.0\ref\SCMS.API.dll
+C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\obj\Debug\net8.0\SCMS.API.sourcelink.json

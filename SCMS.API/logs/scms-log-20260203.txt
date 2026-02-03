@@ -1,0 +1,1341 @@
+2026-02-03 12:51:22.243 +07:00 [INF] User profile is available. Using 'C:\Users\FUJITSU\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-03 12:51:22.473 +07:00 [INF] Pending Order Cancellation Service is starting.
+2026-02-03 12:51:25.223 +07:00 [WRN] The WebRootPath was not found: C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\wwwroot. Static files may be unavailable.
+2026-02-03 12:51:25.248 +07:00 [INF] Now listening on: http://localhost:5090
+2026-02-03 12:51:25.249 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 12:51:25.250 +07:00 [INF] Hosting environment: Development
+2026-02-03 12:51:25.250 +07:00 [INF] Content root path: C:\PRN232\SmartCanteenSystemWebApp\SCMS.API
+2026-02-03 12:51:25.413 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:52:25.770 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:52:47.819 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 12:52:47.928 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 12:52:48.000 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:48.025 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 210.7919ms
+2026-02-03 12:52:48.038 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 12:52:48.054 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:48.171 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 12:52:48.257 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 12:52:48.914 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 12:52:49.643 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 12:52:49.678 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 1396.3716ms
+2026-02-03 12:52:49.681 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 12:52:49.697 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 1658.5372ms
+2026-02-03 12:52:49.871 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 12:52:49.890 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:49.894 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:52:49.906 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:49.933 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 12:52:49.952 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:49.987 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 74.9399ms
+2026-02-03 12:52:49.990 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:52:49.992 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 121.1512ms
+2026-02-03 12:52:50.041 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 12:52:50.048 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:50.053 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:50.066 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:50.096 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 12:52:50.138 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:50.147 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 77.4103ms
+2026-02-03 12:52:50.149 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:50.152 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 110.3792ms
+2026-02-03 12:52:55.251 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 12:52:55.256 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:55.257 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:55.258 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:55.291 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 12:52:55.294 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:55.296 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 36.1486ms
+2026-02-03 12:52:55.298 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:55.300 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 48.4104ms
+2026-02-03 12:52:55.775 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 12:52:55.779 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:55.781 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:55.783 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:55.790 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 12:52:55.794 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:55.796 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 10.9578ms
+2026-02-03 12:52:55.798 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:55.800 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 24.96ms
+2026-02-03 12:52:56.174 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 12:52:56.177 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:56.178 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:56.179 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:56.184 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 12:52:56.187 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:56.189 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.3662ms
+2026-02-03 12:52:56.191 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:56.192 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 17.5285ms
+2026-02-03 12:52:56.491 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - null null
+2026-02-03 12:52:56.494 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:56.495 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:56.497 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:56.501 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 12:52:56.505 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:56.508 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 9.199ms
+2026-02-03 12:52:56.510 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:56.511 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - 200 null application/json; charset=utf-8 19.7556ms
+2026-02-03 12:52:57.161 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 12:52:57.165 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:57.166 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:57.168 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:52:57.173 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 12:52:57.177 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:57.180 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 9.0875ms
+2026-02-03 12:52:57.182 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:52:57.183 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 21.5585ms
+2026-02-03 12:52:58.311 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/wallet - null null
+2026-02-03 12:52:58.315 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:58.316 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/wallet - 204 null null 4.8397ms
+2026-02-03 12:52:58.321 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet - application/json null
+2026-02-03 12:52:58.325 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:58.433 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:52:58.441 +07:00 [INF] Route matched with {action = "GetWallet", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWallet() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:52:58.479 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:52:58.497 +07:00 [INF] Executing OkObjectResult, writing value of type 'SCMS.Domain.DTOs.WalletDto'.
+2026-02-03 12:52:58.503 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetWallet (SCMS.API) in 59.1914ms
+2026-02-03 12:52:58.505 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:52:58.509 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet - 200 null application/json; charset=utf-8 187.9801ms
+2026-02-03 12:52:58.531 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/wallet/history - null null
+2026-02-03 12:52:58.537 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:58.539 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/wallet/history - 204 null null 8.0418ms
+2026-02-03 12:52:58.544 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet/history - application/json null
+2026-02-03 12:52:58.550 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:58.555 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:52:58.561 +07:00 [INF] Route matched with {action = "GetHistory", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetHistory() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:52:58.570 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:52:58.616 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__wallet_WalletId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."TransactionId", t."Type", t."Amount", t."Status", t."TransactionDate", t."Description", t."OrderId"
+FROM "Transactions" AS t
+WHERE t."WalletId" = @__wallet_WalletId_0
+ORDER BY t."TransactionDate" DESC
+2026-02-03 12:52:58.620 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.DTOs.TransactionDetailsDto, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:58.633 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetHistory (SCMS.API) in 68.6615ms
+2026-02-03 12:52:58.634 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:52:58.636 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet/history - 200 null application/json; charset=utf-8 92.426ms
+2026-02-03 12:52:59.402 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Orders/my-orders - null null
+2026-02-03 12:52:59.406 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:59.407 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Orders/my-orders - 204 null null 5.5729ms
+2026-02-03 12:52:59.412 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - application/json null
+2026-02-03 12:52:59.417 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:52:59.419 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:52:59.426 +07:00 [INF] Route matched with {action = "GetMyOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller SCMS.API.Controllers.OrdersController (SCMS.API).
+2026-02-03 12:52:59.466 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", t."OrderItemId", t."ItemId", t."OrderId", t."PriceAtTimeOfOrder", t."Quantity", t."ItemId0", t."CategoryId", t."Description", t."ImageUrl", t."InventoryQuantity", t."IsAvailable", t."Name", t."Price"
+FROM "Orders" AS o
+LEFT JOIN (
+    SELECT o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity", m."ItemId" AS "ItemId0", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price"
+    FROM "OrderItems" AS o0
+    INNER JOIN "MenuItems" AS m ON o0."ItemId" = m."ItemId"
+) AS t ON o."OrderId" = t."OrderId"
+WHERE o."UserId" = @__userId_0
+ORDER BY o."OrderDate" DESC, o."OrderId", t."OrderItemId"
+2026-02-03 12:52:59.469 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Order, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:52:59.488 +07:00 [INF] Executed action SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API) in 58.2395ms
+2026-02-03 12:52:59.492 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:52:59.493 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - 200 null application/json; charset=utf-8 81.1893ms
+2026-02-03 12:53:01.076 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet - application/json null
+2026-02-03 12:53:01.080 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:53:01.086 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:53:01.088 +07:00 [INF] Route matched with {action = "GetWallet", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWallet() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:53:01.095 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:53:01.100 +07:00 [INF] Executing OkObjectResult, writing value of type 'SCMS.Domain.DTOs.WalletDto'.
+2026-02-03 12:53:01.103 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetWallet (SCMS.API) in 10.3244ms
+2026-02-03 12:53:01.104 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:53:01.106 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet - 200 null application/json; charset=utf-8 29.9444ms
+2026-02-03 12:53:01.126 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet/history - application/json null
+2026-02-03 12:53:01.128 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:53:01.130 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:53:01.131 +07:00 [INF] Route matched with {action = "GetHistory", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetHistory() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:53:01.136 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:53:01.143 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__wallet_WalletId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."TransactionId", t."Type", t."Amount", t."Status", t."TransactionDate", t."Description", t."OrderId"
+FROM "Transactions" AS t
+WHERE t."WalletId" = @__wallet_WalletId_0
+ORDER BY t."TransactionDate" DESC
+2026-02-03 12:53:01.147 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.DTOs.TransactionDetailsDto, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:53:01.149 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetHistory (SCMS.API) in 14.6909ms
+2026-02-03 12:53:01.151 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:53:01.153 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet/history - 200 null application/json; charset=utf-8 26.7628ms
+2026-02-03 12:53:01.654 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 12:53:01.657 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:53:01.658 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:53:01.661 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:53:01.667 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 12:53:01.670 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:53:01.672 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 8.0546ms
+2026-02-03 12:53:01.674 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:53:01.675 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 21.3076ms
+2026-02-03 12:53:01.681 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 12:53:01.684 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:53:01.685 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:53:01.686 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:53:01.691 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 12:53:01.695 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:53:01.697 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.3566ms
+2026-02-03 12:53:01.699 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:53:01.700 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 18.9596ms
+2026-02-03 12:53:25.870 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:54:25.915 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:55:25.923 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:56:26.015 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:57:26.061 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:57:34.199 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 12:57:34.222 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:34.232 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 33.7551ms
+2026-02-03 12:57:34.243 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 12:57:34.250 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:34.261 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 12:57:34.270 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 12:57:34.345 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 12:57:34.723 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 12:57:34.733 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 460.5019ms
+2026-02-03 12:57:34.735 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 12:57:34.739 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 495.9983ms
+2026-02-03 12:57:34.896 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 12:57:34.908 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:34.911 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:57:34.913 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:57:34.921 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 12:57:34.926 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:34.930 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 14.866ms
+2026-02-03 12:57:34.932 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:57:34.934 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 38.4625ms
+2026-02-03 12:57:35.055 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 12:57:35.059 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:35.061 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:57:35.064 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:57:35.078 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 12:57:35.084 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:35.088 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 21.1568ms
+2026-02-03 12:57:35.091 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:57:35.094 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 39.6291ms
+2026-02-03 12:57:38.787 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/wallet - null null
+2026-02-03 12:57:38.790 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:38.792 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/wallet - 204 null null 5.461ms
+2026-02-03 12:57:38.796 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet - application/json null
+2026-02-03 12:57:38.799 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:38.815 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:57:38.817 +07:00 [INF] Route matched with {action = "GetWallet", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWallet() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:57:38.831 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:57:38.835 +07:00 [INF] Executing OkObjectResult, writing value of type 'SCMS.Domain.DTOs.WalletDto'.
+2026-02-03 12:57:38.838 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetWallet (SCMS.API) in 18.0474ms
+2026-02-03 12:57:38.839 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetWallet (SCMS.API)'
+2026-02-03 12:57:38.841 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet - 200 null application/json; charset=utf-8 44.8766ms
+2026-02-03 12:57:38.851 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/wallet/history - null null
+2026-02-03 12:57:38.857 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:38.859 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/wallet/history - 204 null null 8.2514ms
+2026-02-03 12:57:38.864 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/wallet/history - application/json null
+2026-02-03 12:57:38.867 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:38.872 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:57:38.873 +07:00 [INF] Route matched with {action = "GetHistory", controller = "Wallet"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetHistory() on controller SCMS.API.Controllers.WalletController (SCMS.API).
+2026-02-03 12:57:38.879 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT w."WalletId", w."Balance", w."UserId"
+FROM "Wallets" AS w
+WHERE w."UserId" = @__userId_0
+LIMIT 1
+2026-02-03 12:57:38.898 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__wallet_WalletId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."TransactionId", t."Type", t."Amount", t."Status", t."TransactionDate", t."Description", t."OrderId"
+FROM "Transactions" AS t
+WHERE t."WalletId" = @__wallet_WalletId_0
+ORDER BY t."TransactionDate" DESC
+2026-02-03 12:57:38.902 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.DTOs.TransactionDetailsDto, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:38.904 +07:00 [INF] Executed action SCMS.API.Controllers.WalletController.GetHistory (SCMS.API) in 27.8854ms
+2026-02-03 12:57:38.906 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.WalletController.GetHistory (SCMS.API)'
+2026-02-03 12:57:38.907 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/wallet/history - 200 null application/json; charset=utf-8 42.9118ms
+2026-02-03 12:57:40.086 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Orders/my-orders - null null
+2026-02-03 12:57:40.090 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:40.091 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Orders/my-orders - 204 null null 5.4204ms
+2026-02-03 12:57:40.099 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - application/json null
+2026-02-03 12:57:40.124 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:40.126 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:57:40.128 +07:00 [INF] Route matched with {action = "GetMyOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller SCMS.API.Controllers.OrdersController (SCMS.API).
+2026-02-03 12:57:40.144 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", t."OrderItemId", t."ItemId", t."OrderId", t."PriceAtTimeOfOrder", t."Quantity", t."ItemId0", t."CategoryId", t."Description", t."ImageUrl", t."InventoryQuantity", t."IsAvailable", t."Name", t."Price"
+FROM "Orders" AS o
+LEFT JOIN (
+    SELECT o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity", m."ItemId" AS "ItemId0", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price"
+    FROM "OrderItems" AS o0
+    INNER JOIN "MenuItems" AS m ON o0."ItemId" = m."ItemId"
+) AS t ON o."OrderId" = t."OrderId"
+WHERE o."UserId" = @__userId_0
+ORDER BY o."OrderDate" DESC, o."OrderId", t."OrderItemId"
+2026-02-03 12:57:40.203 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Order, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:40.206 +07:00 [INF] Executed action SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API) in 68.2474ms
+2026-02-03 12:57:40.208 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:57:40.210 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - 200 null application/json; charset=utf-8 110.9664ms
+2026-02-03 12:57:41.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - application/json null
+2026-02-03 12:57:41.905 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:41.906 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:57:41.907 +07:00 [INF] Route matched with {action = "GetMyOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyOrders() on controller SCMS.API.Controllers.OrdersController (SCMS.API).
+2026-02-03 12:57:41.924 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", t."OrderItemId", t."ItemId", t."OrderId", t."PriceAtTimeOfOrder", t."Quantity", t."ItemId0", t."CategoryId", t."Description", t."ImageUrl", t."InventoryQuantity", t."IsAvailable", t."Name", t."Price"
+FROM "Orders" AS o
+LEFT JOIN (
+    SELECT o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity", m."ItemId" AS "ItemId0", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price"
+    FROM "OrderItems" AS o0
+    INNER JOIN "MenuItems" AS m ON o0."ItemId" = m."ItemId"
+) AS t ON o."OrderId" = t."OrderId"
+WHERE o."UserId" = @__userId_0
+ORDER BY o."OrderDate" DESC, o."OrderId", t."OrderItemId"
+2026-02-03 12:57:41.927 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Order, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:41.928 +07:00 [INF] Executed action SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API) in 17.9679ms
+2026-02-03 12:57:41.929 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.OrdersController.GetMyOrders (SCMS.API)'
+2026-02-03 12:57:41.931 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Orders/my-orders - 200 null application/json; charset=utf-8 28.6917ms
+2026-02-03 12:57:42.912 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 12:57:42.915 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:42.917 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:57:42.918 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:57:42.922 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 12:57:42.925 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:42.926 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 6.1795ms
+2026-02-03 12:57:42.928 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 12:57:42.930 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 17.4021ms
+2026-02-03 12:57:42.933 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 12:57:42.935 +07:00 [INF] CORS policy execution successful.
+2026-02-03 12:57:42.940 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:57:42.942 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 12:57:42.950 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 12:57:42.954 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 12:57:42.956 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 11.3734ms
+2026-02-03 12:57:42.958 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 12:57:42.959 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 26.3246ms
+2026-02-03 12:58:26.083 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 12:59:26.098 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:00:26.122 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:01:26.129 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:02:09.379 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:02:09.423 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:09.445 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 66.3114ms
+2026-02-03 13:02:09.456 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:02:09.469 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:09.488 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:02:09.513 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:02:09.756 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:02:10.159 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:02:10.166 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 650.1407ms
+2026-02-03 13:02:10.168 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:02:10.170 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 714.1102ms
+2026-02-03 13:02:10.339 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:02:10.349 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:10.351 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:02:10.354 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:10.362 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:02:10.372 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:10.378 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 21.0716ms
+2026-02-03 13:02:10.380 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:02:10.386 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 44.3551ms
+2026-02-03 13:02:10.546 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:02:10.551 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:10.553 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:10.556 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:10.570 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:02:10.579 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:10.584 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 24.5628ms
+2026-02-03 13:02:10.586 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:10.588 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 41.9534ms
+2026-02-03 13:02:25.528 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:02:25.532 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:25.534 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:02:25.536 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:25.541 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:02:25.546 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:25.549 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 10.839ms
+2026-02-03 13:02:25.558 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:02:25.560 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 34.0821ms
+2026-02-03 13:02:25.599 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:02:25.605 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:25.608 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:25.609 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:25.614 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:02:25.618 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:25.620 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.2735ms
+2026-02-03 13:02:25.623 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:25.625 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 25.9872ms
+2026-02-03 13:02:26.190 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:02:37.656 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:02:37.660 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:37.661 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:37.664 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:37.677 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:02:37.680 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:37.682 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 15.6226ms
+2026-02-03 13:02:37.684 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:37.685 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 28.9869ms
+2026-02-03 13:02:38.551 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:02:38.553 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:38.556 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:38.557 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:38.569 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:02:38.572 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:38.573 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 13.2044ms
+2026-02-03 13:02:38.574 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:38.576 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 24.6298ms
+2026-02-03 13:02:39.029 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 13:02:39.032 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:39.034 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:39.035 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:39.039 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:02:39.042 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:39.043 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 5.7688ms
+2026-02-03 13:02:39.044 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:39.045 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 16.424ms
+2026-02-03 13:02:39.377 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - null null
+2026-02-03 13:02:39.379 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:39.379 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:39.380 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:39.384 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:02:39.387 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:39.388 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 5.7789ms
+2026-02-03 13:02:39.389 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:39.390 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - 200 null application/json; charset=utf-8 13.4821ms
+2026-02-03 13:02:40.026 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:02:40.029 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:02:40.030 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:40.032 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:02:40.036 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:02:40.039 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:02:40.042 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.3579ms
+2026-02-03 13:02:40.043 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:02:40.044 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 18.0659ms
+2026-02-03 13:03:26.203 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:04:26.213 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:05:01.849 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:05:01.858 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:05:01.864 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 15.3788ms
+2026-02-03 13:05:01.871 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:05:01.876 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:05:01.883 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:05:01.889 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:05:01.936 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:05:02.322 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:05:02.328 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 435.3683ms
+2026-02-03 13:05:02.331 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:05:02.334 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 462.9671ms
+2026-02-03 13:05:02.512 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:05:02.523 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:05:02.525 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:05:02.526 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:05:02.535 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:05:02.540 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:05:02.547 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 17.9168ms
+2026-02-03 13:05:02.549 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:05:02.551 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 38.6953ms
+2026-02-03 13:05:02.735 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:05:02.741 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:05:02.742 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:05:02.744 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:05:02.754 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:05:02.761 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:05:02.765 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 17.4447ms
+2026-02-03 13:05:02.767 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:05:02.769 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 34.8351ms
+2026-02-03 13:05:26.227 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:06:26.236 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:07:26.353 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:07:30.524 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:07:30.529 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:07:30.531 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 7.9424ms
+2026-02-03 13:07:30.534 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:07:30.539 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:07:30.542 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:07:30.544 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:07:30.559 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:07:30.796 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:07:30.799 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 253.4761ms
+2026-02-03 13:07:30.801 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:07:30.802 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 267.5134ms
+2026-02-03 13:07:30.970 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:07:30.975 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:07:30.978 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:07:30.980 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:07:30.991 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:07:30.995 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:07:30.999 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 15.5966ms
+2026-02-03 13:07:31.002 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:07:31.003 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 33.3187ms
+2026-02-03 13:07:31.109 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:07:31.114 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:07:31.116 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:07:31.118 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:07:31.128 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:07:31.134 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:07:31.138 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 15.574ms
+2026-02-03 13:07:31.140 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:07:31.141 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 32.555ms
+2026-02-03 13:08:26.366 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:08:43.867 +07:00 [INF] Application is shutting down...
+2026-02-03 13:11:37.422 +07:00 [INF] User profile is available. Using 'C:\Users\FUJITSU\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-02-03 13:11:37.516 +07:00 [INF] Pending Order Cancellation Service is starting.
+2026-02-03 13:11:40.975 +07:00 [WRN] The WebRootPath was not found: C:\PRN232\SmartCanteenSystemWebApp\SCMS.API\wwwroot. Static files may be unavailable.
+2026-02-03 13:11:41.020 +07:00 [INF] Now listening on: http://localhost:5090
+2026-02-03 13:11:41.022 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-03 13:11:41.024 +07:00 [INF] Hosting environment: Development
+2026-02-03 13:11:41.026 +07:00 [INF] Content root path: C:\PRN232\SmartCanteenSystemWebApp\SCMS.API
+2026-02-03 13:11:41.310 +07:00 [INF] Executed DbCommand (105ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:12:39.377 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:12:39.499 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-03 13:12:39.542 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:39.559 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 189.7195ms
+2026-02-03 13:12:39.567 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:12:39.578 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:39.649 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:12:39.697 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:12:40.015 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:12:40.410 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:12:40.426 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 720.8913ms
+2026-02-03 13:12:40.427 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:12:40.448 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 880.5151ms
+2026-02-03 13:12:40.576 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:12:40.592 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:40.596 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:12:40.604 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:40.692 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:12:40.705 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:40.727 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 121.0327ms
+2026-02-03 13:12:40.730 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:12:40.731 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 155.5966ms
+2026-02-03 13:12:40.747 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:12:40.750 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:40.753 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:40.763 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:40.792 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:12:40.824 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:40.832 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 64.3779ms
+2026-02-03 13:12:40.834 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:40.837 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 89.4886ms
+2026-02-03 13:12:41.362 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:12:45.773 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:12:45.777 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:45.779 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:45.781 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:45.806 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:45.810 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:45.812 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 27.4074ms
+2026-02-03 13:12:45.814 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:45.815 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 42.3455ms
+2026-02-03 13:12:46.721 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:12:46.727 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:46.729 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:46.731 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:46.736 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:46.739 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:46.740 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.4051ms
+2026-02-03 13:12:46.742 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:46.743 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 21.898ms
+2026-02-03 13:12:47.310 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 13:12:47.314 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:47.316 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:47.318 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:47.321 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:47.325 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:47.326 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 6.6193ms
+2026-02-03 13:12:47.327 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:47.329 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 19.0336ms
+2026-02-03 13:12:47.815 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - null null
+2026-02-03 13:12:47.820 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:47.821 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:47.822 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:47.827 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:47.830 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:47.832 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.9455ms
+2026-02-03 13:12:47.834 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:47.835 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - 200 null application/json; charset=utf-8 20.0917ms
+2026-02-03 13:12:48.651 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:12:48.655 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:48.656 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:48.658 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:48.662 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:12:48.665 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:48.667 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.1859ms
+2026-02-03 13:12:48.669 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:48.670 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 19.3027ms
+2026-02-03 13:12:49.370 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:12:49.372 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:49.373 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:49.374 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:49.378 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:49.380 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:49.382 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 5.7346ms
+2026-02-03 13:12:49.383 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:49.384 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 13.5667ms
+2026-02-03 13:12:50.048 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:12:50.051 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:50.053 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.054 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:50.059 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:50.062 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:50.064 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.4119ms
+2026-02-03 13:12:50.066 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.067 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 18.6734ms
+2026-02-03 13:12:50.485 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 13:12:50.488 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:50.489 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.490 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:50.494 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:50.497 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:50.499 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 6.7163ms
+2026-02-03 13:12:50.500 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.501 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 15.5796ms
+2026-02-03 13:12:50.926 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - null null
+2026-02-03 13:12:50.929 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:50.930 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.932 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:50.938 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:50.942 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:50.944 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.6606ms
+2026-02-03 13:12:50.945 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:50.947 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=4& - 200 null application/json; charset=utf-8 21.2537ms
+2026-02-03 13:12:51.261 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 13:12:51.265 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:51.266 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:51.268 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:51.274 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:51.277 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:51.279 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.3883ms
+2026-02-03 13:12:51.281 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:51.283 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 21.2596ms
+2026-02-03 13:12:51.588 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:12:51.592 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:51.593 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:51.595 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:51.601 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:51.604 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:51.607 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.4645ms
+2026-02-03 13:12:51.608 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:51.610 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 21.2251ms
+2026-02-03 13:12:52.437 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:12:52.440 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:52.443 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:52.444 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:52.449 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:52.452 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:52.455 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.0913ms
+2026-02-03 13:12:52.457 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:52.458 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 21.706ms
+2026-02-03 13:12:53.066 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:12:53.072 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:53.074 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:53.075 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:53.078 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:12:53.082 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:53.085 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.8952ms
+2026-02-03 13:12:53.087 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:53.089 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 23.1014ms
+2026-02-03 13:12:53.698 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:12:53.701 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:12:53.702 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:53.703 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:12:53.708 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:12:53.711 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:12:53.713 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.2911ms
+2026-02-03 13:12:53.714 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:12:53.716 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 17.7518ms
+2026-02-03 13:13:00.490 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:13:00.494 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:13:00.495 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:13:00.496 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:13:00.501 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:13:00.504 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:13:00.506 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 6.7314ms
+2026-02-03 13:13:00.507 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:13:00.508 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 17.8169ms
+2026-02-03 13:13:12.853 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:13:12.857 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:13:12.858 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:13:12.859 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:13:12.864 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:13:12.867 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:13:12.868 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.2276ms
+2026-02-03 13:13:12.870 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:13:12.872 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 18.9354ms
+2026-02-03 13:13:41.374 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:14:41.387 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:15:27.345 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:15:27.348 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:15:27.350 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:15:27.354 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:15:27.359 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:15:27.362 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 10.7813ms
+2026-02-03 13:15:27.363 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:15:27.364 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 19.444ms
+2026-02-03 13:15:41.406 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:16:41.419 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:17:41.437 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:18:41.446 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:19:41.466 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:20:41.485 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:21:41.528 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:22:41.652 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:23:41.666 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:24:38.960 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:24:39.012 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:39.045 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 87.2917ms
+2026-02-03 13:24:39.065 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:24:39.086 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:39.106 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:24:39.125 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:24:39.264 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:24:39.809 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:24:39.817 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 685.7805ms
+2026-02-03 13:24:39.819 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:24:39.823 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 757.118ms
+2026-02-03 13:24:39.991 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:24:40.001 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:40.002 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:24:40.004 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:24:40.016 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:24:40.029 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:24:40.035 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 26.977ms
+2026-02-03 13:24:40.037 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:24:40.040 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 49.0729ms
+2026-02-03 13:24:40.180 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:24:40.184 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:40.185 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:24:40.187 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:24:40.201 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:24:40.212 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:24:40.216 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 26.3542ms
+2026-02-03 13:24:40.218 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:24:40.220 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 39.9274ms
+2026-02-03 13:24:41.681 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:24:57.903 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:24:57.906 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:57.907 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:24:57.908 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:24:57.911 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:24:57.921 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:24:57.922 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 12.907ms
+2026-02-03 13:24:57.923 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:24:57.924 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 21.1894ms
+2026-02-03 13:24:57.953 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:24:57.956 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:24:57.957 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:24:57.958 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:24:57.962 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:24:57.965 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:24:57.966 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 6.4765ms
+2026-02-03 13:24:57.968 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:24:57.969 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 15.4239ms
+2026-02-03 13:25:41.696 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:26:41.718 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:27:27.004 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:27:27.025 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:27:27.032 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 27.8519ms
+2026-02-03 13:27:27.060 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:27:27.073 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:27:27.104 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:27:27.129 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:27:27.216 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:27:27.571 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:27:27.575 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 442.8739ms
+2026-02-03 13:27:27.577 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:27:27.580 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 519.3417ms
+2026-02-03 13:27:27.746 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:27:27.771 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:27:27.772 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:27:27.774 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:27:27.780 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:27:27.786 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:27:27.789 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 11.3733ms
+2026-02-03 13:27:27.791 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:27:27.794 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 48.5164ms
+2026-02-03 13:27:27.916 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:27:27.922 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:27:27.924 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:27:27.926 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:27:27.933 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:27:27.939 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:27:27.943 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 14.6996ms
+2026-02-03 13:27:27.945 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:27:27.947 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 31.5554ms
+2026-02-03 13:27:41.734 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:28:20.070 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:28:20.104 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:28:20.140 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:20.142 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:28:20.298 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:28:20.301 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:28:20.303 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 158.2615ms
+2026-02-03 13:28:20.304 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:20.305 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 239.5469ms
+2026-02-03 13:28:20.947 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:28:20.951 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:28:20.952 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:20.954 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:28:20.959 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:28:20.963 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:28:20.965 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 9.2109ms
+2026-02-03 13:28:20.966 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:20.968 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 20.5485ms
+2026-02-03 13:28:27.069 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:28:27.073 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:28:27.076 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:27.081 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:28:27.087 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:28:27.091 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:28:27.093 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 9.7995ms
+2026-02-03 13:28:27.094 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:27.096 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 26.4201ms
+2026-02-03 13:28:27.628 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:28:27.631 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:28:27.632 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:27.634 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:28:27.640 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:28:27.645 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:28:27.648 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 10.519ms
+2026-02-03 13:28:27.649 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:28:27.651 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 22.8677ms
+2026-02-03 13:28:41.760 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:29:41.775 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:30:41.804 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:30:58.018 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - null null
+2026-02-03 13:30:58.022 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:30:58.027 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/auth/login - 204 null null 9.8031ms
+2026-02-03 13:30:58.031 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/auth/login - application/json 53
+2026-02-03 13:30:58.034 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:30:58.037 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:30:58.040 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(SCMS.Domain.DTOs.LoginDto) on controller SCMS.API.Controllers.AuthController (SCMS.API).
+2026-02-03 13:30:58.078 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__loginDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."CreatedAt", u."Email", u."FullName", u."HeadTeacherId", u."MustChangePassword", u."ParentId", u."PasswordHash", u."PasswordResetToken", u."ResetTokenExpires", u."RoleId", r."RoleId", r."RoleName"
+FROM "Users" AS u
+INNER JOIN "Roles" AS r ON u."RoleId" = r."RoleId"
+WHERE u."Email" = @__loginDto_Email_0
+LIMIT 2
+2026-02-03 13:30:58.297 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-02-03 13:30:58.302 +07:00 [INF] Executed action SCMS.API.Controllers.AuthController.Login (SCMS.API) in 259.9282ms
+2026-02-03 13:30:58.304 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.AuthController.Login (SCMS.API)'
+2026-02-03 13:30:58.305 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/auth/login - 200 null application/json; charset=utf-8 273.9655ms
+2026-02-03 13:30:58.433 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu/categories - null null
+2026-02-03 13:30:58.440 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:30:58.441 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:30:58.443 +07:00 [INF] Route matched with {action = "GetCategories", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCategories() on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:30:58.447 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."CategoryId", c."CategoryName"
+FROM "Categories" AS c
+2026-02-03 13:30:58.452 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.Category, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:30:58.456 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.GetCategories (SCMS.API) in 11.3553ms
+2026-02-03 13:30:58.458 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.GetCategories (SCMS.API)'
+2026-02-03 13:30:58.459 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu/categories - 200 null application/json; charset=utf-8 26.3585ms
+2026-02-03 13:30:58.556 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:30:58.558 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:30:58.560 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:30:58.562 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:30:58.575 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:30:58.612 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:30:58.618 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 51.3363ms
+2026-02-03 13:30:58.619 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:30:58.620 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 63.8549ms
+2026-02-03 13:31:30.363 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:31:30.367 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:30.368 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:30.370 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:30.379 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:31:30.387 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:30.390 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 16.7837ms
+2026-02-03 13:31:30.391 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:30.393 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 29.9655ms
+2026-02-03 13:31:30.985 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:31:30.990 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:30.991 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:30.992 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:30.997 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:31:30.999 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:31.001 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.1414ms
+2026-02-03 13:31:31.002 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:31.004 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 18.2356ms
+2026-02-03 13:31:31.436 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - null null
+2026-02-03 13:31:31.439 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:31.440 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:31.441 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:31.445 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:31:31.449 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:31.450 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.0059ms
+2026-02-03 13:31:31.451 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:31.453 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=3& - 200 null application/json; charset=utf-8 17.1845ms
+2026-02-03 13:31:31.880 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - null null
+2026-02-03 13:31:31.883 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:31.884 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:31.886 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:31.890 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:31:31.894 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:31.896 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 8.2925ms
+2026-02-03 13:31:31.898 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:31.899 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=2& - 200 null application/json; charset=utf-8 19.5522ms
+2026-02-03 13:31:32.214 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - null null
+2026-02-03 13:31:32.217 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:32.218 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:32.231 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:32.238 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+WHERE m."CategoryId" = @__categoryId_0
+2026-02-03 13:31:32.243 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:32.245 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 10.7425ms
+2026-02-03 13:31:32.246 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:32.248 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu?categoryId=1& - 200 null application/json; charset=utf-8 33.866ms
+2026-02-03 13:31:32.514 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Menu - null null
+2026-02-03 13:31:32.516 +07:00 [INF] CORS policy execution successful.
+2026-02-03 13:31:32.517 +07:00 [INF] Executing endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:32.518 +07:00 [INF] Route matched with {action = "Get", controller = "Menu"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(System.String, System.Nullable`1[System.Int32]) on controller SCMS.API.Controllers.MenuController (SCMS.API).
+2026-02-03 13:31:32.522 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT m."ItemId", m."CategoryId", m."Description", m."ImageUrl", m."InventoryQuantity", m."IsAvailable", m."Name", m."Price", c."CategoryId", c."CategoryName"
+FROM "MenuItems" AS m
+INNER JOIN "Categories" AS c ON m."CategoryId" = c."CategoryId"
+2026-02-03 13:31:32.525 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SCMS.Domain.MenuItem, SCMS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-02-03 13:31:32.527 +07:00 [INF] Executed action SCMS.API.Controllers.MenuController.Get (SCMS.API) in 7.1822ms
+2026-02-03 13:31:32.528 +07:00 [INF] Executed endpoint 'SCMS.API.Controllers.MenuController.Get (SCMS.API)'
+2026-02-03 13:31:32.531 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Menu - 200 null application/json; charset=utf-8 16.8138ms
+2026-02-03 13:31:41.805 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__tenMinutesAgo_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT o."OrderId", o."OrderDate", o."PickupTime", o."RejectionReason", o."Status", o."TotalPrice", o."UserId", o0."OrderItemId", o0."ItemId", o0."OrderId", o0."PriceAtTimeOfOrder", o0."Quantity"
+FROM "Orders" AS o
+LEFT JOIN "OrderItems" AS o0 ON o."OrderId" = o0."OrderId"
+WHERE o."Status" = 'Pending Payment' AND o."OrderDate" <= @__tenMinutesAgo_0
+ORDER BY o."OrderId"
+2026-02-03 13:31:57.006 +07:00 [INF] Application is shutting down...
